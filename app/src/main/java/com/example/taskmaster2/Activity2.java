@@ -19,14 +19,12 @@ public class Activity2 extends AppCompatActivity {
       submitB.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+          Toast.makeText(Activity2.this,"submitted!", Toast.LENGTH_SHORT).show();
         Toast toast= Toast.makeText( getApplicationContext(),"Submitted!" , Toast.LENGTH_SHORT);
         toast.show();
         }
       });
     }
 
-  public void submitTask(){
-    Toast.makeText(Activity2.this,"Submitted" , Toast.LENGTH_LONG).show();
-  }
 
 }
