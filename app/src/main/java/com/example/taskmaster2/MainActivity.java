@@ -1,6 +1,9 @@
 package com.example.taskmaster2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,19 +11,24 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
   public static final String TASK_NAME = "taskTitle";
-
+  RecycleAdapter recycleAdapter= new RecycleAdapter();
+  private ArrayList<Task>  taskList= recycleAdapter.getTasksList();
+  private RecyclerView recyclerView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-
+//    System.out.println(findViewById(R.id.taskText).getContext());
     Button addBtn = (Button) findViewById(R.id.addBtn);
 
       addBtn.setOnClickListener(new View.OnClickListener() {
@@ -30,7 +38,7 @@ openNewPage();
         }
       });
 
-    Button settingsBtn = (Button) findViewById(R.id.settingBtn);
+    ImageButton settingsBtn = (ImageButton) findViewById(R.id.imageButton);
     settingsBtn.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -38,6 +46,15 @@ openNewPage();
         startActivity(intent);
       }
     });
+
+
+       recyclerView= findViewById(R.id.recyclerView1);
+    taskList=new ArrayList<>();
+// set the adapter here and call the functions : >>>>>>>>>>>>>>>>
+      setTaskDetails();
+      setAdapter();
+
+
 
 
     /**
@@ -86,6 +103,31 @@ openNewPage();
 
 
   }
+
+  private void setAdapter() {
+    RecycleAdapter adapter=new RecycleAdapter(taskList);
+    RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
+    recyclerView.setLayoutManager(layoutManager);
+    recyclerView.setItemAnimator(new DefaultItemAnimator());
+    recyclerView.setAdapter(adapter);
+  }
+
+  private void setTaskDetails() {
+    taskList.add(new Task("Maryam" ,"body of task1" ,"ok"));
+    taskList.add(new Task("Yousef" ,"body of task1" ,"ok"));
+    taskList.add(new Task("Sara" ,"body of task1" ,"ok"));
+    taskList.add(new Task("Reem" ,"body of task1" ,"ok"));
+    taskList.add(new Task("Dana" ,"body of task1" ,"ok"));
+    taskList.add(new Task("Aseel" ,"body of task1" ,"ok"));
+    taskList.add(new Task("Taima" ,"body of task1" ,"ok"));
+    taskList.add(new Task("Aya" ,"body of task1" ,"ok"));
+    taskList.add(new Task("Lora" ,"body of task1" ,"ok"));
+    taskList.add(new Task("Reta" ,"body of task1" ,"ok"));
+    taskList.add(new Task("Farah" ,"body of task1" ,"ok"));
+    taskList.add(new Task("Memez" ,"body of task1" ,"ok"));
+    taskList.add(new Task("meeeeeee" ,"body of task1" ,"ok"));
+  }
+
   public void openNewPage(){
     Intent intent = new Intent(MainActivity.this, Activity2.class);
     startActivity(intent);
