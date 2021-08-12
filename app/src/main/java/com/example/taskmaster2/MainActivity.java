@@ -38,6 +38,7 @@ openNewPage();
         }
       });
 
+
     ImageButton settingsBtn = (ImageButton) findViewById(R.id.imageButton);
     settingsBtn.setOnClickListener(new View.OnClickListener() {
       @Override
