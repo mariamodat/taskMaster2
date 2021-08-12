@@ -1,7 +1,16 @@
 package com.example.taskmaster2;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Task {
+  @PrimaryKey(autoGenerate = true)
+    private long id;
+  @ColumnInfo(name = "Task_Title")
   String title;
+  @ColumnInfo(name = "Task_Body")
   String body;
   String state;
 
@@ -31,7 +40,15 @@ public class Task {
     return state;
   }
 
+  public long getId() {
+    return id;
+  }
+
   public void setState(String state) {
     this.state = state;
+  }
+
+  public void setId(long id) {
+    this.id = id;
   }
 }
