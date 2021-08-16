@@ -53,7 +53,7 @@ openNewPage();
 
     System.out.println("on create >>>>>>>>>>>>" );
 
-    ImageButton settingsBtn = (ImageButton) findViewById(R.id.imageButton);
+    Button settingsBtn = (Button) findViewById(R.id.imageButton);
     settingsBtn.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
