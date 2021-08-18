@@ -72,7 +72,10 @@ dependencies {
 
   // optional - Paging 3 Integration
   implementation "androidx.room:room-paging:2.4.0-alpha04"
-
+// Amplify core dependency
+  implementation 'com.amplifyframework:aws-api:1.24.0'
+  implementation 'com.amplifyframework:core:1.24.0'
+  implementation 'com.amplifyframework:aws-datastore:1.24.0'
 
 
 }

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.amplifyframework.datastore.generated.model.Task;
 import com.google.android.material.internal.ViewOverlayImpl;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.List;
 
 public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHolder> {
 
-  private List<Task> tasksList ;
+  private List<Task> tasksList =new ArrayList<>();
   private OnClickListener listener;
   public List<Task> getTasksList() {
     return tasksList;
